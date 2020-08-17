@@ -1,19 +1,25 @@
-apiVersion : apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tushpattistiodemo 
+  name: istiodemo-v1
+  labels:
+    app: istiodemo
 spec:
+  selector:
+    matchLabels:
+      app: istiodemo
   replicas: 1
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "true"
       labels:
-        app: tushpattistiodemo 
+        app: istiodemo
+        version: v1
     spec:
       containers:
-        - name: tushpattistiodemo 
-          image: tusharacr.azurecr.io/tushpattistiodemo
-          ports:
-          - containerPort: 80          
+      - name: istiodemo
+        image: tushpatt/istiodemo:latest
+        ports:
+        - containerPort: 8080       
          
