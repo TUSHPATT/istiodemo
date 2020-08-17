@@ -1,10 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: tushpattistiodemo
+  name: istiodemo
+  labels:
+      app: istiodemo
 spec:
-    type: LoadBalancer
-    ports:
-    - port: 80 
-    selector:
-        app: tushpattistiodemo
+  selector:
+    app: istiodemo
+  ports:
+  - port: 8080
+    name: http
+  type: NodePort
