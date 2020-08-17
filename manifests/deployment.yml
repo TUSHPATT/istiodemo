@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: tushpattistiodemo 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tushpattistiodemo 
+    spec:
+      containers:
+        - name: tushpattistiodemo 
+          image: tusharacr.azurecr.io/tushpattistiodemo
+          ports:
+          - containerPort: 80
