@@ -6,6 +6,8 @@ spec:
   replicas: 1
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
       labels:
         app: tushpattistiodemo 
     spec:
@@ -13,4 +15,5 @@ spec:
         - name: tushpattistiodemo 
           image: tusharacr.azurecr.io/tushpattistiodemo
           ports:
-          - containerPort: 80
+          - containerPort: 80          
+         
