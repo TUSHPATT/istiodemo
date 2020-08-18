@@ -1,3 +1,2 @@
 # istiodemo
-
-Test demo 
+Istio demo project 
